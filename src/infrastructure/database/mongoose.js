@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const URI = 'mongodb+srv://guilherme20silva99:Everton14galo@coodesh.0cb4g.mongodb.net/?retryWrites=true&w=majority&appName=coodesh';
+const URI = 'mongodb+srv://guilherme20silva99:Everton14galo@coodesh.0cb4g.mongodb.net/food-db?retryWrites=true&w=majority&appName=coodesh';
 
 const mongoURI = process.env.MONGO_URI || URI;
 

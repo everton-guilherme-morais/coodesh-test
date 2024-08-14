@@ -12,15 +12,18 @@ class ProductRepository {
   }
 
   async create(product) {
+    console.log(product, 'product')
     const newProduct = new this.ProductModel(product);
     return await newProduct.save();
   }
 
   async update(code, updates) {
+    console.log(code, 'code update')
     return await this.ProductModel.findOneAndUpdate({ code }, updates, { new: true });
   }
 
   async delete(code) {
+    console.log(code, 'code delete')
     return await this.update(code, { status: 'trash' });
   }
 }

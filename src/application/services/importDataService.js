@@ -16,33 +16,42 @@ class ImportDataService {
 
         try {
           const response = await axios.get(`https://world.openfoodfacts.org/api/v2/product/${barcode}.json`);
-          console.log(response, 'response')
           if (response.data && response.data.product) {
             const productData = response.data.product;
-            // console.log(`Produto encontrado: ${productData.product_name}`);
 
-            // Removendo o campo _id, se existir
-            delete productData._id;
+            const filteredData = {
+              code: productData.code,
+              status: 'draft',
+              imported_t: new Date(),
+              url: productData.url,
+              creator: productData.creator,
+              created_t: productData.created_t,
+              last_modified_t: productData.last_modified_t,
+              product_name: productData.product_name,
+              quantity: productData.quantity,
+              brands: productData.brands,
+              categories: productData.categories,
+              labels: productData.labels,
+              cities: productData.cities,
+              purchase_places: productData.purchase_places,
+              stores: productData.stores,
+              ingredients_text: productData.ingredients_text,
+              traces: productData.traces,
+              serving_size: productData.serving_size,
+              serving_quantity: productData.serving_quantity,
+              nutriscore_score: productData.nutriscore_score,
+              nutriscore_grade: productData.nutriscore_grade,
+              main_category: productData.main_category,
+              image_url: productData.image_url
+            };
 
-            // Verifica se o produto já existe no banco de dados
-            const existingProduct = await this.productRepository.findByCode(productData.code);
+            const existingProduct = await this.productRepository.findByCode(filteredData.code);
 
             if (existingProduct) {
-              // Atualiza o produto existente
-              await this.productRepository.update(productData.code, {
-                ...productData,
-                imported_t: new Date(),
-                status: 'draft',
-              });
+              await this.productRepository.update(filteredData.code, filteredData);
             } else {
-              // Cria um novo produto
-              await this.productRepository.create({
-                ...productData,
-                imported_t: new Date(),
-                status: 'draft',
-              });
+              await this.productRepository.create(filteredData);
             }
-
           } else {
             console.log(`Produto não encontrado para o código de barras: ${barcode}`);
           }
