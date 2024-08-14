@@ -6,7 +6,7 @@ const ProductModel = require('../database/models/productModel');
 const productRepository = new ProductRepository(ProductModel);
 const importDataService = new ImportDataService(productRepository);
 
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('*/50 * * * *', () => {
   console.log('Importando os dados')
   importDataService.importData(['737628064502']);
   console.log('Importação de dados finalizada.');

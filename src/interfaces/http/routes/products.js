@@ -6,6 +6,7 @@ const CreateProduct = require('../../../application/usecases/createProduct');
 const UpdateProduct = require('../../../application/usecases/updateProduct');
 const DeleteProduct = require('../../../application/usecases/deleteProduct');
 const GetProduct = require('../../../application/usecases/getProduct');
+const GetAllProducts = require('../../../application/usecases/getAllProducts');
 const ProductRepository = require('../../../domain/repositories/productRepository');
 const ProductModel = require('../../../infrastructure/database/models/productModel');
 
@@ -14,7 +15,8 @@ const productService = new ProductService(
   new CreateProduct(productRepository),
   new UpdateProduct(productRepository),
   new DeleteProduct(productRepository),
-  new GetProduct(productRepository)
+  new GetProduct(productRepository),
+  new GetAllProducts(productRepository)
 );
 const productController = new ProductController(productService);
 

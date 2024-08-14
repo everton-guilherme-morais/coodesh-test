@@ -1,9 +1,10 @@
 class ProductService {
-  constructor(createProduct, updateProduct, deleteProduct, getProduct) {
+  constructor(createProduct, updateProduct, deleteProduct, getProduct, getAllProducts) {
     this.createProduct = createProduct;
     this.updateProduct = updateProduct;
     this.deleteProduct = deleteProduct;
-    this.getProduct = getProduct;
+    this.getProductUseCase = getProduct;
+    this.getAllProductsUseCase = getAllProducts;
   }
 
   async createProduct(productData) {
@@ -19,7 +20,11 @@ class ProductService {
   }
 
   async getProduct(code) {
-    return await this.getProduct.execute(code);
+    return await this.getProductUseCase.execute(code);
+  }
+
+  async getAllProducts() {
+    return await this.getAllProductsUseCase.execute();
   }
 }
 

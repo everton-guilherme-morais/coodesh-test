@@ -3,6 +3,15 @@ class ProductRepository {
     this.ProductModel = ProductModel;
   }
 
+  async getAll() {
+    try {
+      const products = await this.ProductModel.find({});
+      return products;
+    } catch (error) {
+      throw new Error('Erro ao buscar os produtos: ' + error.message);
+    }
+  }
+
   async findAll() {
     return await this.ProductModel.find();
   }
