@@ -13,7 +13,6 @@ class ImportDataService {
 
       for (let i = 0; i < barcodes.length && i < limit; i++) {
         const barcode = barcodes[i];
-        // console.log(`Buscando dados do produto com código de barras: ${barcode}`);
 
         try {
           const response = await axios.get(`https://world.openfoodfacts.org/api/v2/product/${barcode}.json`);
