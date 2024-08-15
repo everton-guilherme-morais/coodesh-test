@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
+
 const ProductController = require('../controllers/productController');
 const ProductService = require('../../../application/services/productService');
+
 const CreateProduct = require('../../../application/usecases/createProduct');
 const UpdateProduct = require('../../../application/usecases/updateProduct');
 const DeleteProduct = require('../../../application/usecases/deleteProduct');
 const GetProduct = require('../../../application/usecases/getProduct');
 const GetAllProducts = require('../../../application/usecases/getAllProducts');
+
 const ProductRepository = require('../../../domain/repositories/productRepository');
 const ProductModel = require('../../../infrastructure/database/models/productModel');
 
 const productRepository = new ProductRepository(ProductModel);
+
 const productService = new ProductService(
   new CreateProduct(productRepository),
   new UpdateProduct(productRepository),

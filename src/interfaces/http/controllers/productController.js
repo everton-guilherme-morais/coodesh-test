@@ -4,7 +4,6 @@ class ProductController {
   }
 
   async getAllProducts(req, res) {
-    console.log('teste hehe')
     try {
       const products = await this.productService.getAllProducts();
       res.json(products);
