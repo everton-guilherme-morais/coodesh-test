@@ -1,0 +1,150 @@
+{
+  "products": [
+    {
+      "_id": "66bde2fd3d81c0626a187f44",
+      "code": "3017620425035",
+      "status": "draft",
+      "imported_t": "2024-08-15T15:11:20.731+00:00",
+      "creator": "kiliweb",
+      "created_t": "1970-01-18T17:40:52.519+00:00",
+      "last_modified_t": "1970-01-20T22:28:11.699+00:00",
+      "product_name": "Nutella",
+      "quantity": "1 kg",
+      "brands": [
+        "Ferrero"
+      ],
+      "categories": [
+        "Petit-déjeuners",
+        "Matières grasses",
+        "Produits à tartiner"
+      ],
+      "labels": [
+        "Sans gluten",
+        "Sans conservateurs",
+        "Sans colorants",
+        "Sans matière grasse hydrogénée"
+      ],
+      "cities": [],
+      "purchase_places": [
+        "France",
+        "Lacaune"
+      ],
+      "stores": [
+        "Auchan",
+        "E. Leclerc",
+        "Carrefour"
+      ],
+      "ingredients_text": "Sucre, huile de palme, NOISETTES 13%, LAIT écrémé en poudre 8,7%, cacao...",
+      "traces": "",
+      "serving_size": "15 g",
+      "serving_quantity": 15,
+      "nutriscore_score": 21,
+      "nutriscore_grade": "e",
+      "image_url": "https://images.openfoodfacts.org/images/products/301/762/042/5035/front.jpg",
+      "__v": 0,
+      "id": "caeb"
+    },
+    {
+      "id": "190d",
+      "code": "3017620425036",
+      "status": "draft",
+      "imported_t": "2024-08-15T19:10:33.237Z",
+      "creator": "testuser",
+      "created_t": "2024-08-15T19:10:33.237Z",
+      "last_modified_t": "2024-08-15T19:10:33.237Z",
+      "product_name": "New Product",
+      "quantity": "500 g",
+      "brands": [
+        "Test Brand"
+      ],
+      "categories": [
+        "Test Category"
+      ],
+      "labels": [
+        "Test Label"
+      ],
+      "cities": [],
+      "purchase_places": [
+        "Test Place"
+      ],
+      "stores": [
+        "Test Store"
+      ],
+      "ingredients_text": "Test ingredients",
+      "traces": "Test traces",
+      "serving_size": "10 g",
+      "serving_quantity": 10,
+      "nutriscore_score": 10,
+      "nutriscore_grade": "a",
+      "image_url": "https://example.com/image.jpg"
+    },
+    {
+      "id": "c7e1",
+      "code": "3017620425036",
+      "status": "draft",
+      "imported_t": "2024-08-15T19:16:49.395Z",
+      "creator": "testuser",
+      "created_t": "2024-08-15T19:16:49.395Z",
+      "last_modified_t": "2024-08-15T19:16:49.395Z",
+      "product_name": "New Product",
+      "quantity": "500 g",
+      "brands": [
+        "Test Brand"
+      ],
+      "categories": [
+        "Test Category"
+      ],
+      "labels": [
+        "Test Label"
+      ],
+      "cities": [],
+      "purchase_places": [
+        "Test Place"
+      ],
+      "stores": [
+        "Test Store"
+      ],
+      "ingredients_text": "Test ingredients",
+      "traces": "Test traces",
+      "serving_size": "10 g",
+      "serving_quantity": 10,
+      "nutriscore_score": 10,
+      "nutriscore_grade": "a",
+      "image_url": "https://example.com/image.jpg"
+    },
+    {
+      "id": "d92e",
+      "code": "3017620425036",
+      "status": "draft",
+      "imported_t": "2024-08-15T19:17:16.756Z",
+      "creator": "testuser",
+      "created_t": "2024-08-15T19:17:16.756Z",
+      "last_modified_t": "2024-08-15T19:17:16.756Z",
+      "product_name": "New Product",
+      "quantity": "500 g",
+      "brands": [
+        "Test Brand"
+      ],
+      "categories": [
+        "Test Category"
+      ],
+      "labels": [
+        "Test Label"
+      ],
+      "cities": [],
+      "purchase_places": [
+        "Test Place"
+      ],
+      "stores": [
+        "Test Store"
+      ],
+      "ingredients_text": "Test ingredients",
+      "traces": "Test traces",
+      "serving_size": "10 g",
+      "serving_quantity": 10,
+      "nutriscore_score": 10,
+      "nutriscore_grade": "a",
+      "image_url": "https://example.com/image.jpg"
+    }
+  ]
+}

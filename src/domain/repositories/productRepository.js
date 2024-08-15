@@ -3,18 +3,26 @@ class ProductRepository {
     this.ProductModel = ProductModel;
   }
 
-  async getAll() {
+  async getAll(page = 1, limit = 10) {
     try {
-      const products = await this.ProductModel.find({});
-      return products;
-    } catch (error) {
-      throw new Error('Erro ao buscar os produtos: ' + error.message);
-    }
-  }
+        const skip = (page - 1) * limit;
+        const products = await this.ProductModel.find({})
+            .skip(skip)
+            .limit(limit);
+        
+        const totalDocuments = await this.ProductModel.countDocuments({});
+        const totalPages = Math.ceil(totalDocuments / limit);
 
-  async findAll() {
-    return await this.ProductModel.find();
-  }
+        return {
+            products,
+            currentPage: page,
+            totalPages,
+            totalProducts: totalDocuments,
+        };
+    } catch (error) {
+        throw new Error('Erro ao buscar os produtos: ' + error.message);
+    }
+}
 
   async findByCode(code) {
     return await this.ProductModel.findOne({ code });

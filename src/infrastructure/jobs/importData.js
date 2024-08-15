@@ -3,13 +3,13 @@ const axios = require('axios');
 const ImportDataService = require('../../application/services/importDataService');
 const ProductRepository = require('../../domain/repositories/productRepository');
 const ProductModel = require('../database/models/productModel');
+const CronService = require('./cronService');
 
 const productRepository = new ProductRepository(ProductModel);
 const importDataService = new ImportDataService(productRepository);
+const cronService = new CronService();
 
-cron.schedule('*/10 * * * *', async () => {
-  console.log('Importando os dados');
-
+cron.schedule('*/1 * * * *', async () => {
   try {
     const response = await axios.get('https://world.openfoodfacts.org/api/v2/search.json?fields=code&page_size=100');
 
@@ -18,7 +18,6 @@ cron.schedule('*/10 * * * *', async () => {
       
       if (barcodes.length > 0) {
         await importDataService.importData(barcodes);
-        console.log('Importação de dados finalizada.');
       } else {
         console.log('Nenhum código');
       }
@@ -28,6 +27,8 @@ cron.schedule('*/10 * * * *', async () => {
   } catch (error) {
     console.error('Erro ao buscar códigos:', error.message);
   }
+  cronService.updateExecutionTime();
 });
 
-module.exports = importDataService;
+console.log('CronService instance in importData:', cronService);
+module.exports = { importDataService, cronService };
