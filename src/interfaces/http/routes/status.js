@@ -11,6 +11,19 @@ const productRepository = new ProductRepository(ProductModel);
 const statusService = new StatusService(productRepository, cronService);
 const statusController = new StatusController(statusService);
 
+/**
+ * @swagger
+ * /status:
+ *   get:
+ *     summary: Get the status of the service
+ *     responses:
+ *       200:
+ *         description: Service status
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ */
 router.get('/', (req, res) => statusController.getStatus(req, res));
 
 module.exports = router;

@@ -15,19 +15,6 @@ describe('GET /products', () => {
   });
 });
 
-// describe('GET /products/:code', () => {
-//   it('should return a single product', async () => {
-//     const response = await request(BASE_URL)
-//       .get('/products/3017620425035')
-//       .expect('Content-Type', /json/)
-//       .expect(200);
-
-//     expect(response.body).toHaveProperty('product_name', 'Nutella');
-//     expect(response.body).toHaveProperty('brands');
-//     expect(response.body).toHaveProperty('categories');
-//   });
-// });
-
 describe('POST /products', () => {
   it('should create a new product', async () => {
     const newProduct = {
