@@ -9,7 +9,7 @@ class ImportDataService {
   async importData(barcodes) {
     try {
       console.log('Iniciando a importação de dados...');
-      const limit = 1;
+      const limit = 100;
 
       for (let i = 0; i < barcodes.length && i < limit; i++) {
         const barcode = barcodes[i];

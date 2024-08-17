@@ -3,7 +3,6 @@ class StatusService {
         this.productRepository = productRepository;
         this.cronService = cronService;
         this.startTime = Date.now();
-        console.log('CronService instance in StatusService:', this.cronService);
     }
 
     async getStatus() {

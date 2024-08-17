@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const connectDB = require('./infrastructure/database/mongoose');
 const statusRouter = require('./interfaces/http/routes/status');

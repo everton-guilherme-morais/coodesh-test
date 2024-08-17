@@ -22,15 +22,20 @@ class ProductRepository {
     } catch (error) {
         throw new Error('Erro ao buscar os produtos: ' + error.message);
     }
-}
+  }
 
   async findByCode(code) {
     return await this.ProductModel.findOne({ code });
   }
 
   async create(product) {
-    const newProduct = new this.ProductModel(product);
-    return await newProduct.save();
+    try {
+      const newProduct = new this.ProductModel(product);
+      return await newProduct.save();
+    } catch (error) {
+      console.error('Erro ao criar o produto:', error);
+      throw new Error('Erro ao criar o produto: ' + error.message);
+    }
   }
 
   async update(code, updates) {

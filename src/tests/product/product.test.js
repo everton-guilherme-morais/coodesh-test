@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:3002';
 
 describe('GET /products', () => {
   it('should return a list of products', async () => {
@@ -9,29 +9,31 @@ describe('GET /products', () => {
       .expect('Content-Type', /json/)
       .expect(200);
 
-    expect(response.body).toBeInstanceOf(Array);
-    expect(response.body.length).toBeGreaterThan(0);
-    expect(response.body[0]).toHaveProperty('product_name');
+    expect(response.body).toBeInstanceOf(Object);
+
+    expect(response.body.products).toBeInstanceOf(Array);
+
+    expect(response.body.products.length).toBeGreaterThan(0);
+
+    if (response.body.products.length > 0) {
+      expect(response.body.products[0]).toHaveProperty('product_name');
+    }
+    expect(response.body).toHaveProperty('currentPage');
+    expect(response.body).toHaveProperty('totalPages');
+    expect(response.body).toHaveProperty('totalProducts');
   });
 });
 
-// describe('GET /products/:code', () => {
-//   it('should return a single product', async () => {
-//     const response = await request(BASE_URL)
-//       .get('/products/3017620425035')
-//       .expect('Content-Type', /json/)
-//       .expect(200);
-
-//     expect(response.body).toHaveProperty('product_name', 'Nutella');
-//     expect(response.body).toHaveProperty('brands');
-//     expect(response.body).toHaveProperty('categories');
-//   });
-// });
-
 describe('POST /products', () => {
+  let productCode;
+
+  beforeEach(() => {
+    productCode = `test-${Date.now()}`;
+  });
+
   it('should create a new product', async () => {
     const newProduct = {
-      code: '3017620425036',
+      code: productCode,
       status: 'draft',
       imported_t: new Date().toISOString(),
       creator: 'testuser',

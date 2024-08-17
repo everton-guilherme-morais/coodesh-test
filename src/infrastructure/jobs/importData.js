@@ -9,7 +9,7 @@ const productRepository = new ProductRepository(ProductModel);
 const importDataService = new ImportDataService(productRepository);
 const cronService = new CronService();
 
-cron.schedule('*/1 * * * *', async () => {
+cron.schedule('*/25 * * * *', async () => {
   try {
     const response = await axios.get('https://world.openfoodfacts.org/api/v2/search.json?fields=code&page_size=100');
 
@@ -30,5 +30,4 @@ cron.schedule('*/1 * * * *', async () => {
   cronService.updateExecutionTime();
 });
 
-console.log('CronService instance in importData:', cronService);
 module.exports = { importDataService, cronService };
