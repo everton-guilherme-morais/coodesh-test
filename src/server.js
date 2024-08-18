@@ -2,11 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const connectDB = require('./infrastructure/database/mongoose');
 const statusRouter = require('./interfaces/http/routes/status');
-const swaggerSetup = require('./config/swagger');
 
 const app = express();
-
-swaggerSetup(app);
 
 connectDB();
 
@@ -22,5 +19,4 @@ require('./infrastructure/jobs/importData');
 const PORT = process.env.PORT || 3002;
 app.listen(3002, () => {
   console.log('Server is running on http://localhost:3002');
-  console.log('Swagger docs available at http://localhost:3002/api-docs');
 });
